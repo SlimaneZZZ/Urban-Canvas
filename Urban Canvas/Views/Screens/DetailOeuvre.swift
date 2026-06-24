@@ -42,7 +42,7 @@ struct DetailOeuvre: View {
                 Text (oeuvre.description)
                     .font(.caption)
                 VStack (alignment:.leading){
-                    Text("**Type:** \(oeuvre.type)")
+                    Text("**Type:** \(oeuvre.type.joined(separator: ", "))")
                     Text("**Condition:** \(oeuvre.condition)")
                     Text("**Date:** \(oeuvre.date)")
                     Text("**Auteur:** \(oeuvre.artist)")

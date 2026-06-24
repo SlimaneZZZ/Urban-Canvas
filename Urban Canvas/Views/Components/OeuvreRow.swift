@@ -35,9 +35,9 @@ struct OeuvreRow: View {
                 
                 
             }
-//            Image(systemName: "chevron.right")
-//                    .foregroundStyle(.secondText)
-//                    .font(.caption)
+            Image(systemName: "chevron.right")
+                    .foregroundStyle(.secondText)
+                    .font(.caption)
            
         } .padding(.horizontal, 8)
     }
