@@ -8,6 +8,8 @@ import SwiftUI
 
 struct ListeOeuvres: View {
     
+    @Binding var selected: VueOeuvres
+    
     @State private var showFilters = false
     @State private var selectedFilter = "Tous"
     
@@ -35,7 +37,7 @@ struct ListeOeuvres: View {
                 VStack(alignment: .leading) {
                     
                     HStack {
-                        Spacer()
+                        SegmentedPickerOeuvres(selected: $selected)
                         
                         Button {
                             withAnimation(.spring()) {
@@ -55,8 +57,8 @@ struct ListeOeuvres: View {
                                 .clipShape(Circle())
                         }
                     }
-                    .padding(.top)
-                    .padding(.trailing)
+                    .padding(.top, 8)
+                    .padding(.horizontal)
                     
                     Text("Liste des Street arts")
                         .font(.largeTitle)
@@ -119,5 +121,5 @@ struct ListeOeuvres: View {
 }
 
 #Preview {
-    ListeOeuvres()
+    ListeOeuvres(selected: .constant(.liste))
 }
