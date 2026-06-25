@@ -31,7 +31,7 @@ var oeuvres : [StreetArts] = [
     
     StreetArts(name: "La maison de Cécile", image: "maison-de-cecile", type: ["Street art figuratif poétique"], date: "Aout 2021", description: "La dernière des immenses fresques peintes par Seth dans un quartier emblématique de Paris.", artist: "Seth Globepainter", city: "Paris", localization: "Rue Mouffetard, Paris, France", condition: "Bonne", longitude: 2.3497, latitude: 48.8421),
     
-    StreetArts(name: "Chloé", image: "chloe", type: ["Street art figuratif réaliste", "Mural", "Stencil"], date: "Décembre 2020", description: "Voici le portrait de Chloé, une célèbre skateuse marseillaise. Il a été peint à La Friche Belle de Mai, un centre culturel, au-dessus du skatepark.", artist: "Mahn Cloix", city: "Marseille", localization: "Friche Belle de Mai, 41 Rue Jobin, 13003 Marseille", condition: "Bonne", longitude: 5.3903, latitude: 43.3096),
+    StreetArts(name: "Chloé", image: "chloe", type: ["Street art figuratif réaliste", "Mural", "Stencil"], date: "Décembre 2020", description: "Voici le portrait de Chloé, une célèbre skateuse marseillaise. Il a été peint à La Friche Belle de Mai, un centre culturel, au-dessus du skatepark.", artist: "Mahn Kloix", city: "Marseille", localization: "Friche Belle de Mai, 41 Rue Jobin, 13003 Marseille", condition: "Bonne", longitude: 5.3903, latitude: 43.3096),
     
     StreetArts(name: "PA_278", image: "pa-278", type: ["Pixel art", "Invaders", "Mosaïque"], date: "Septembre 2025", description: "PA_278 est une mosaïque de street art en pixel art, réalisée par Invader. Elle s’inscrit dans une esthétique rétro-gaming 8-bit, avec des carreaux qui remplacent les pixels numériques dans l’espace urbain.", artist: "Invader", city: "Paris", localization: "53 rue des Maraîchers, 75020 Paris", condition: "Bonne", longitude: 2.4065, latitude: 48.8530),
     
@@ -43,5 +43,34 @@ var oeuvres : [StreetArts] = [
     StreetArts(name: "Le Tigre et la Cigale", image: "le-tigre-et-la-cigale", type: ["Fresque murale onirique", "Mural"], date: "Mars 2024", description: """
                Brésilien résident à Marseille, Nhobi est particulièrement habité par la forêt et les esprits qui la peuplent. Il réalise des fresques où la faune et la végétation sont omniprésentes. Sa fresque fait référence à la dévastation forestière et particulièrement à la forêt amazonienne qui brûle.
                """
-               , artist: "Nhobi", city: "Bessèges", localization: "175 Rue du Portail de Fer, 30160 Bessèges, France", condition: "Bonne", longitude: 5.3903, latitude: 43.3096)
-                            ]
+               , artist: "Nhobi", city: "Bessèges", localization: "175 Rue du Portail de Fer, 30160 Bessèges, France", condition: "Bonne", longitude: 5.3903, latitude: 43.3096)  ]
+    
+    struct Auteur : Identifiable, Hashable {
+        let id: UUID = UUID()
+        let name: String
+        let image: String
+        let age : String
+        let origin: String
+        let style: String
+        let website: String
+        
+    }
+
+var auteurs : [Auteur] = [
+    
+    
+    Auteur(name: "KAN DMV", image: "Kan-dmv", age: "49 ans", origin: "France", style: "Pointillisme", website: "https://kandmv.com/"),
+    Auteur(name: "Kitsune Jolene", image: "kitsune-jolene", age: "34 ans", origin: "Belgique", style: "Mural", website: "https://www.kitsunejolene.com/"),
+    Auteur(name: "Aero", image: "aero", age: "44 ans", origin: "France", style: "Aérographe", website: "https://www.instagram.com/creaero/?hl=fr"),
+    Auteur(name: "Seth Globepainter", image: "seth-globepainter", age: "54 ans", origin: "France", style: "Globepainter", website: "https://seth.fr/"),
+    Auteur(name: "JDL", image: "jdl", age: "30 ans", origin: "Pays-Bas", style: "Mural", website: "https://jdlstreetart.com/"),
+    Auteur(name: "Shepard Fairey", image: "shepard-fairey", age: "56 ans", origin: "USA", style: "Mural", website: "https://obeygiant.com/"),
+    
+   
+    Auteur(name: "El Seed", image: "el-seed", age: "45 ans", origin: "Tunisie", style: "Calligrafitti", website: "https://elseed-art.com/"),
+    Auteur(name: "Mahn Kloix", image: "mahn-kloix", age: "46 ans", origin: "France", style: "Mural", website: "https://www.mahn.fr/"),
+    Auteur(name: "Invader", image: "invader", age: "57 ans", origin: "France", style: "Mosaïque", website: "https://www.space-invaders.com/home/"),
+    Auteur(name: "Jef Aérosol", image: "jef-aerosol", age: "59 ans", origin: "France", style: "Mural", website: "https://www.jefaerosol.com/"),
+    Auteur(name: "Nhobi", image: "nhobi", age: "NC", origin: "Brésil", style: "Mural", website: "https://www.instagram.com/nhobi_cerqueira/")
+]
+                          

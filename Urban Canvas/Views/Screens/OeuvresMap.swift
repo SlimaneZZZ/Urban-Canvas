@@ -60,13 +60,40 @@ struct OeuvresMap: View {
                                 oeuvreSelectionne = oeuvre
                             } label: {
                                 ZStack {
+                                    
+                                    Triangle()
+                                        .fill(.white)
+                                        .frame(width: 20, height: 16)
+                                        .offset(y: 23)
+                                    
                                     Circle()
-                                        .fill(.orange)
+                                        .fill(.white)
+                                        .frame(width: 50, height: 50)
+                                    
+                                    Triangle()
+                                        .fill(
+                                            LinearGradient(
+                                                colors: [.secondOrange, .mainOrange],
+                                                startPoint: .top,
+                                                endPoint: .bottom
+                                            )
+                                        )
+                                        .frame(width: 14, height: 11)
+                                        .offset(y: 23)
+                                    
+                                    Circle()
+                                        .fill(
+                                            LinearGradient(
+                                                colors: [.secondOrange, .mainOrange],
+                                                startPoint: .top,
+                                                endPoint: .bottom
+                                            )
+                                        )
                                         .frame(width: 44, height: 44)
 
                                     Image(systemName: "mappin")
                                         .foregroundColor(.white)
-                                        .font(.system(size: 18, weight: .bold))
+                                        .font(.system(size: 20, weight: .black))
                                 }
                             }
                         }
@@ -154,6 +181,18 @@ struct OeuvresMap: View {
 
         oeuvreDetailEnAttente = nil
         oeuvreDetail = oeuvre
+    }
+}
+
+
+struct Triangle: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        path.move(to: CGPoint(x: rect.minX, y: rect.minY))
+        path.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
+        path.addLine(to: CGPoint(x: rect.midX, y: rect.maxY))
+        path.closeSubpath()
+        return path
     }
 }
 

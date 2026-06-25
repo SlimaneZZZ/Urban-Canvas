@@ -75,6 +75,8 @@ struct SheetOeuvreMap: View {
                 .frame(maxWidth: .infinity)
                 .frame(height: 170)
                 .clipped()
+                .contentShape(Rectangle())
+                .allowsHitTesting(false)
 
             ScrollView {
                 Text(oeuvre.description)
