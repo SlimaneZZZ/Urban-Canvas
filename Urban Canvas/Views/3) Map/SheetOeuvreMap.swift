@@ -69,11 +69,14 @@ struct SheetOeuvreMap: View {
             }
             .padding(.horizontal)
 
-            Image(oeuvre.image)
-                .resizable()
-                .scaledToFill()
+            Color.clear
                 .frame(maxWidth: .infinity)
                 .frame(height: 170)
+                .overlay(
+                    Image(oeuvre.image)
+                        .resizable()
+                        .scaledToFill()
+                )
                 .clipped()
                 .contentShape(Rectangle())
                 .allowsHitTesting(false)

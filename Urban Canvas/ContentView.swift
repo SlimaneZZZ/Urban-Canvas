@@ -19,6 +19,11 @@ struct ContentView: View {
                 .tabItem {
                     Label("Auteurs", systemImage: "person.circle")
                 }
+            
+            Missions()
+                .tabItem {
+                    Label("Mission", systemImage: "trophy.circle")
+                }
         }
         .tint(.mainOrange)
     }

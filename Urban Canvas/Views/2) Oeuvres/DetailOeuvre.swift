@@ -13,6 +13,16 @@ struct DetailOeuvre: View {
     
     let oeuvre : StreetArts
     
+    var provientDeMission: Bool = false
+    var dejaDecouverte: Bool = false
+    var onMarquerDecouverte: (() -> Void)? = nil
+    
+    @State private var marqueeLocalement = false
+    
+    private var estDecouverte: Bool {
+        dejaDecouverte || marqueeLocalement
+    }
+    
     var position: MapCameraPosition {
             .region(
                 MKCoordinateRegion(
@@ -30,9 +40,15 @@ struct DetailOeuvre: View {
     
     var body: some View {
         VStack (spacing : 16){
-            Image(oeuvre.image)
-                .resizable()
+            Color.clear
+                .frame(maxWidth: .infinity)
                 .frame(height: 300)
+                .overlay(
+                    Image(oeuvre.image)
+                        .resizable()
+                        .scaledToFill()
+                )
+                .clipped()
             
             VStack (alignment: .leading, spacing : 16) {
                 Text (oeuvre.name)
@@ -49,6 +65,24 @@ struct DetailOeuvre: View {
                     Text("**Localisation:** \(oeuvre.localization) (Latitude : \(oeuvre.latitude, format : .number), Longitude : \(oeuvre.longitude, format : .number))")
                     
                 }.font(.caption)
+                
+                if provientDeMission {
+                    Button {
+                        marqueeLocalement = true
+                        onMarquerDecouverte?()
+                    } label: {
+                        Text(estDecouverte ? "Œuvre découverte ✅" : "Marquer comme découverte")
+                            .font(.subheadline)
+                            .bold()
+                            .foregroundColor(.white)
+                            .padding(.vertical, 12)
+                            .padding(.horizontal, 24)
+                            .background(estDecouverte ? Color.green : Color.secondOrange)
+                            .clipShape(Capsule())
+                    }
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .disabled(estDecouverte)
+                }
                 
                 Spacer()
                 
